@@ -4,21 +4,309 @@
   <title></title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <style type="text/css">
     /* CSS Reset Begins */
-    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block; } body {line-height: 1; } ol, ul {list-style: none; } blockquote, q {quotes: none; } blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none; } table {border-collapse: collapse; border-spacing: 0; } * {margin: 0px; padding: 0px; } a {text-decoration: none; outline: none; color: inherit} a:hover {text-indent: 0; cursor: pointer; } img {border: 0; } ul {list-style: none } * b {font-weight: normal; } .clearfix:after {content: " "; visibility: hidden; display: block; height: 0; clear: both; } html, body {height: 100%; } input{outline: 0;border:0;background: transparent;}
-    * { box-sizing: border-box; text-decoration: none;}
+    body,html{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}body{line-height:1.4;color:#333}*{margin:0;padding:0;box-sizing:border-box}a,abbr,acronym,address,applet,big,blockquote,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,iframe,img,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,tt,ul,var{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}ol,ul{list-style:none}table{border-collapse:separate;border-spacing:0}caption,td,th{text-align:left;font-weight:400}blockquote:after,blockquote:before,q:after,q:before{content:""}blockquote,q{quotes:"" ""}a{text-decoration:none;color:inherit;}.cf:after{content:"";display:table;clear:both}html,body{height:100%;}
     /* CSS Reset Ends */
+    /*Custom CSS Begins*/
+    .dFlex{display: flex;}
+    .jCenter{justify-content: center;}
+    .jEnd{justify-content: flex-end;}
+    .aCenter{align-items: center;}
+    .fDirCol{flex-direction: column;}
+    .main-wrapper{line-height: 1.4;font-family: 'Heebo', sans-serif; color: #fff; overflow: hidden;}
+    .main-wrapper .main-grid{max-width: 1396px; padding: 0 15px;margin: 0 auto;width: 100%;}
+    .main-wrapper .firstFold{width: 100%;min-height: 456px;background:#0c172c url('images/atf-bg.png') center right no-repeat;}
+    .main-wrapper header{padding:10px 5px;height: 50px;}
+    .main-wrapper .logoBox{width: 106px;height: 30px;background-color: #b8e986;color: #417505;font-size: 14px;border-radius: 5.5px;font-weight: 500;}
+    .main-wrapper .logoBox svg{margin-right: 8px;}
+    .main-wrapper .intro{min-height: 275px}
+    .main-wrapper .title{font-size: 28px;line-height: 34px;text-align: center;}
+    .main-wrapper .title span{color: #01c0dc;}
+    .main-wrapper ._cta:hover{cursor: pointer;}
+    .main-wrapper ._cta img{margin: 30px auto;}
+    .main-wrapper .policy{font-size: 10px;color: #f2f3f7;line-height: 11px;text-align: center;max-width: 346px;}
+    .main-wrapper .policy a:hover{text-decoration: underline;}
+    .main-wrapper .screenshot{background-color: #f2f3f7;min-height: 703px;}
+    .main-wrapper .mobile{margin-top: -121px;}
+    .main-wrapper .ripples{width: 350px;height: 350px; position: relative;margin:18px auto; }
+    .main-wrapper .ripples:before {position: absolute; content: ''; height: 350px; width: 350px; border: 1px dashed #00c0dc; border-radius: 50%; animation: spin-clockwise 30s linear infinite;}
+    .main-wrapper .core {height: 170px; width: 170px; border-radius: 50%; background-color: #f0fdff;top: 104px;
+    }
+    .main-wrapper .overText1{position: absolute;top: 111px; left: 103px;z-index: 1;}
+    .main-wrapper .overText2{position: absolute;bottom: 124px; left: 50px;z-index: 1;}
+    .main-wrapper .overText2 .circle{margin-right:5px;}
+    .main-wrapper .circle{width: 12px;height: 12px;border-radius: 50%;background-color: #6a41d1;}
+    .main-wrapper .core:before {position: absolute; content: ''; height: 174px; width: 174px; border: 1px dashed #00c0dc; border-radius: inherit; animation: spin-clockwise 30s linear infinite;}
+    .main-wrapper .core:after {position: absolute; content: ''; height: 254px; width: 254px; border: 1px dashed #00c0dc; border-radius: inherit; animation: spin-anticlock 30s linear infinite;}
+    @keyframes spin-clockwise { 
+      100% { 
+        transform: rotateZ(360deg); 
+      }
+    }
+    @keyframes spin-anticlock { 
+      100% { 
+        transform: rotateZ(-360deg); 
+      }
+    }
+    .main-wrapper .rect{width: 69px; height: 16px;background-color: #fff;border:1px solid #11143c;position: relative;color: #11143c; font-size: 11px; text-align: center;margin-left: 15px;margin-right: 15px;}
+    .main-wrapper .rect:before{content: '';width: 8px;height: 1px;background-color: #11143c;position: absolute;top:50%;left:-9px;}
+    .main-wrapper .rect:after{content: '';width: 8px;height: 1px;background-color: #11143c;position: absolute;top:50%;right:-9px;}
+    .main-wrapper .overText1 p, .main-wrapper .overText2 p{font-size: 14px;color: #252837;}
+    .main-wrapper .features{height:100%;max-height: 285px;background-color: #00759e;}
+    .main-wrapper .features a{padding: 0 15px;}
+    .main-wrapper .features .main-grid{padding:0;}
+    .main-wrapper .features h2{margin: 21px auto 19px;font-size: 28px;line-height: 34px;padding:0 15px;}
+    .main-wrapper .swiperWrap{position: relative;padding-bottom: 50px;width: 100%;}
+    .swiper-container{position: static !important;}
+    .main-wrapper .swiper-container {/*width: 642px;*/ height: 201px; width: 1140px;}
+    .main-wrapper .swiper-slide{width: 322px;height: 201px;display: flex;justify-content: center;flex-direction: column;padding: 0 28px;border-radius: 9px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);}
+    .main-wrapper .slide-1{background-color: #01c0dc;}
+    .main-wrapper .slide-2{background-color: #7336db;}
+    .main-wrapper .slide-3{background-color: #0055d8;}
+    .main-wrapper .slide-4{background-color: #151b3a;}
+    
+    .main-wrapper .swiper-slide h3{font-size: 22px;font-weight: 700;margin: 13px 0 8px;}
+    .main-wrapper .swiper-slide p{font-size: 18px;max-width: 187px; line-height: 24px;}
 
+    .main-wrapper .tasks{height: 555px;background-color: #252837;padding-top: 188px;}
+    .main-wrapper .tasks h2{font-size: 28px;text-align: center;margin-bottom: 10px;}
+    .main-wrapper .task-list{max-width: 379px;width: 100%;margin: 0 auto}
+    .main-wrapper .task-list li{display: inline-flex;background-color: #f2f3f7;border-radius: 7px;margin-top: 20px;}
+    .main-wrapper .task-list li img{border-radius: 7px;}
+    .main-wrapper .task-list p{font-size: 18px;padding:0 10px 0 18px;color: #252837;font-weight: 500;}
+    .main-wrapper .btfSS{height: 460px;background-color: #00759e;}
+    .main-wrapper .btfSS h2{font-size: 28px;line-height: 34px;margin-bottom: 10px;padding-top: 94px;text-align: center;}
+    .main-wrapper .btfSS .mobile{margin-top: 0;}
+    .main-wrapper .plus-points{height: 100%;background-color: #f2f3f7;padding:240px 0 20px;}
+    .main-wrapper .points-list{margin: 0 auto;max-width: 555px;padding: 0 15px;}
+    .main-wrapper .plus-points h2{font-size: 28px;padding: 50px 0 35px;color: #252837;font-weight: 500;}
+    .main-wrapper .plus-points p{font-size: 18px;color: #4c4f5e;line-height: 22px;margin-bottom: 30px;}
+    .main-wrapper .plus-points ul{list-style-image: url('images/tick.svg');margin-left: 25px}
+    .main-wrapper .plus-points ul li{font-size: 18px;color: #4c4f5e;line-height: 22px;margin-bottom: 25px;}
+    .main-wrapper .plus-points ul li:first-child{margin-bottom: 0;}
+    .main-wrapper .plus-points ul li span{position: relative;top: -2px;}
+    .main-wrapper .based-on{padding: 30px 0;background-color: #00759e;padding: 33px 0 10px;}
+    .main-wrapper .based-on .main-grid{text-align: center;}
+    .main-wrapper .based-on h2{font-size: 28px;line-height: 34px;text-align: center;}
+    .main-wrapper footer{background-color: #252837;padding: 30px 15px 21px;color: #5f6269;font-size: 10px;line-height: 12px;}
+    .main-wrapper footer p{max-width: 700px; text-align: center; margin: 0 auto;}
+    .main-wrapper footer .logoBox{margin:42px auto 39px;height: 34px;}
+    .main-wrapper footer .linkouts li{border-right: 1px solid #dbdde7;padding: 0 10px;line-height: 1;font-size: 12px;color: #dbdde7;}
+    .main-wrapper footer .linkouts li:last-child{border-right: none;}
+    .main-wrapper footer .linkouts li:hover{text-decoration: underline;cursor: pointer;}
+
+    @media screen and (max-width:1366px){
+      .main-wrapper .swiper-container{width: 850px;}
+    }
+    @media screen and (max-width:1024px){
+      .main-wrapper .swiper-container{width: 700px;}
+    }
+
+    @media screen and (max-width:767px){
+      .main-wrapper .title{max-width: 361px;}
+      .main-wrapper .swiper-container{width: 100%;}
+      .main-wrapper .swiperWrap{padding-left: 15px;}
+      .main-wrapper .features{max-height: 337px;}
+      .main-wrapper .features h2{max-width: 366px;}
+      .main-wrapper .btfSS{height: 496px;}
+      .main-wrapper .policy, .main-wrapper footer{font-size: 8px;}
+    }
+    @media screen and (max-width:390px){
+      .main-wrapper .ripples{width: 290px;}
+      .main-wrapper .ripples:before{width: 270px; height: 270px;}
+      .main-wrapper .core{top: 104px; height: 90px; width: 90px;}
+      .main-wrapper .core:before{height: 90px; width: 90px;}
+      .main-wrapper .logoBox{width: 80px; height: 28px; font-size: 13px;}
+      .main-wrapper .logoBox svg{margin-right: 5px;}
+      .main-wrapper .overText1{flex-direction: column-reverse;align-items: flex-start;top: 102px;}
+      .main-wrapper .overText2{left: 60px; bottom: 130px;}
+      .main-wrapper .core:after{height: 174px; width: 174px;}
+      .main-wrapper .rect{margin: 3px 8px;}
+      .main-wrapper .tasks{height: 590px}
+      .main-wrapper .task-list p{font-size: 15px;}
+    }
+    /*Custom CSS Ends*/
   </style>
 </head>
 <body>
-  <div class="main">
-    <h1>Welcome!</h1>
+  <div class="main-wrapper">
+    <section class="firstFold">
+      <div class="main-grid dFlex fDirCol">
+        <header class="dFlex jEnd">
+          <div class="logoBox dFlex jCenter aCenter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15"> <path fill="#FA8400" fill-rule="evenodd" d="M8.594 5.594c-.05-.09-.142-.147-.242-.147H4.716l.61-4.846C5.338.467 5.262.34 5.14.297 5.019.252 4.884.3 4.814.412L.39 8.473c-.053.09-.055.201-.006.292.05.092.142.148.243.148H4.21l-.483 4.854c-.01.133.069.256.19.298.122.042.255-.007.324-.12l4.35-8.06c.05-.09.052-.2.003-.291z"/> </svg>
+            <span>FREE VPN</span>
+          </div>
+        </header>
+        <div class="intro dFlex jCenter aCenter fDirCol">
+          <h1 class="title"><span>Anonymous, Secure Browsing</span> At Fast Speeds</h1>
+          <a href="" target="_blank" class="_cta">
+            <img src="images/google-play-badge.png" alt="get it on Google Play">
+          </a>
+          <div class="policy">By clicking above you consent to install this app from the Google Play™ store and confirm that you have read, understood, and agree to abide by its <a href="" target="_blank">Privacy Policy</a> and <a href="" target="_blank">Terms of Service</a>.</div>
+        </div>
+      </div>
+    </section>
+    <section class="screenshot dFlex fDirCol aCenter">
+      <img src="images/mobile.png" class="mobile">
+      <div class="ripples dFlex jCenter aCenter">
+        <div class="core dFlex jCenter aCenter">
+          <div class="logoBox dFlex jCenter aCenter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15"> <path fill="#FA8400" fill-rule="evenodd" d="M8.594 5.594c-.05-.09-.142-.147-.242-.147H4.716l.61-4.846C5.338.467 5.262.34 5.14.297 5.019.252 4.884.3 4.814.412L.39 8.473c-.053.09-.055.201-.006.292.05.092.142.148.243.148H4.21l-.483 4.854c-.01.133.069.256.19.298.122.042.255-.007.324-.12l4.35-8.06c.05-.09.052-.2.003-.291z"/> </svg>
+            <span>FREE VPN</span>
+          </div>
+          <div class="overText1 dFlex aCenter">
+            <div class="circle"></div>
+            <div class="rect">Noice IK</div>
+            <p>end-to-end encryption</p>
+          </div>
+          <div class="overText2 dFlex aCenter">
+            <div class="circle"></div>
+            <p>Latest Wireguard Infrastructure</p>
+        </div>
+        </div>
+      </div>
+    </section>
+    <section class="features">
+      <div class="main-grid dFlex aCenter fDirCol">
+        <a href="" target="_blank" class="_cta">
+          <img src="images/google-play-badge.png" alt="get it on Google Play">
+        </a>
+        <h2>Faster, feature-rich, & more secure than ever before.</h2>
+
+        <!-- Slider main container -->
+        <div class="swiperWrap">
+          <div class="swiper-container">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide slide-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="39" viewBox="0 0 48 39"> <path fill="#FFF" d="M17.448 8.856c-1.44.432-2.448 1.728-2.448 3.24v9.144c0 1.872 1.512 3.384 3.384 3.384h9.072c1.872 0 3.384-1.512 3.384-3.384v-9.144c0-1.512-1.08-2.88-2.52-3.24V6.12c0-3.024-2.448-5.472-5.472-5.472-3.024 0-5.472 2.448-5.472 5.472v2.736h.072zm7.416 10.872c.144.576-.288 1.152-.864 1.152h-2.16c-.576 0-1.008-.576-.864-1.152l.864-3.6c-.72-.504-1.152-1.44-.792-2.376.216-.576.72-1.008 1.296-1.224 1.368-.432 2.592.576 2.592 1.944 0 .72-.36 1.296-.936 1.656l.864 3.6zM18.888 6.12c0-2.232 1.8-4.032 4.032-4.032s4.032 1.8 4.032 4.032v2.52h-8.064V6.12zm-8.4 25.18c-.11-.35-.44-.6-.8-.6-.1 0-.19.02-.28.06l-2.72 1.14.26-2.94c.02-.21-.06-.43-.22-.6-.16-.18-.38-.28-.61-.28h-1.29c-.23 0-.45.1-.61.28-.15.17-.23.38-.22.6l.24 2.96-2.73-1.16c-.09-.04-.18-.06-.28-.06-.36 0-.7.25-.8.6l-.39 1.21c-.07.22-.04.48.08.69.11.2.29.33.49.38l2.85.66-1.91 2.21c-.13.17-.19.39-.17.61.03.23.15.43.33.57l1.05.75c.15.11.33.17.52.17.29 0 .54-.14.66-.36l1.52-2.53 1.52 2.53c.14.22.4.36.68.36.17 0 .34-.05.49-.15l1.05-.76c.2-.14.32-.36.35-.61.02-.23-.04-.44-.18-.6l-1.91-2.23 2.85-.67c.21-.05.39-.18.5-.38.12-.21.14-.45.07-.66l-.39-1.19zm12.11 0c-.11-.35-.44-.6-.8-.6-.1 0-.19.02-.28.06l-2.72 1.14.26-2.94c.02-.21-.06-.43-.22-.6-.16-.18-.38-.27-.61-.27h-1.29c-.23 0-.45.1-.61.28-.15.17-.23.38-.22.6l.24 2.96-2.73-1.16c-.09-.04-.18-.06-.28-.06-.36 0-.7.25-.8.6l-.39 1.21c-.07.22-.04.48.08.69.11.2.29.33.49.38l2.85.66-1.91 2.21c-.13.17-.19.39-.17.61.03.23.15.43.34.57l1.05.75c.15.11.33.17.52.17.29 0 .54-.14.66-.36l1.52-2.53 1.52 2.53c.14.22.4.36.68.36.17 0 .34-.05.49-.15l1.05-.76c.2-.14.32-.36.35-.61.02-.23-.04-.44-.18-.6l-1.91-2.23 2.85-.67c.21-.05.39-.18.5-.38.12-.21.14-.45.07-.66l-.4-1.2zm24.62 1.22l-.39-1.21c-.11-.35-.44-.6-.8-.6-.1 0-.19.02-.28.06l-2.72 1.14.26-2.94c.02-.21-.06-.43-.22-.6-.16-.18-.38-.27-.61-.27h-1.29c-.23 0-.45.1-.61.28-.15.17-.23.38-.22.6l.24 2.96-2.73-1.16c-.09-.04-.18-.06-.28-.06-.36 0-.7.25-.8.6l-.39 1.21c-.07.22-.04.48.08.69.11.2.29.33.49.38l2.85.66-1.91 2.21c-.13.17-.19.39-.17.61.03.23.15.43.34.57l1.05.75c.15.11.33.17.52.17.29 0 .54-.14.66-.36l1.52-2.53 1.52 2.53c.14.22.4.36.68.36.17 0 .34-.05.49-.15l1.05-.76c.2-.14.32-.36.35-.61.02-.23-.04-.44-.18-.6l-1.91-2.23 2.85-.67c.21-.05.39-.18.5-.38.1-.2.13-.44.06-.65zm-12.5-1.22c-.11-.35-.44-.6-.8-.6-.1 0-.19.02-.28.06l-2.72 1.14.26-2.94c.02-.21-.06-.43-.22-.6-.16-.18-.38-.27-.61-.27h-1.29c-.23 0-.45.1-.61.28-.15.17-.23.38-.22.6l.24 2.96-2.73-1.16c-.09-.04-.18-.06-.28-.06-.36 0-.7.25-.8.6l-.39 1.21c-.07.22-.04.48.08.69.11.2.29.33.49.38l2.85.66-1.91 2.21c-.13.17-.19.39-.17.61.03.23.15.43.34.57l1.05.75c.15.11.33.17.52.17.29 0 .54-.14.66-.36l1.52-2.53 1.52 2.53c.14.22.4.36.68.36.17 0 .34-.05.49-.15l1.05-.76c.2-.14.32-.36.35-.61.02-.23-.04-.44-.18-.6l-1.91-2.23 2.85-.67c.21-.05.39-.18.5-.38.12-.21.14-.45.07-.66l-.4-1.2z"/> </svg>
+                    <h3>Single login for all devices</h3>
+                    <p>No more paying for multiple devices</p>
+                  </div>
+                  <div class="swiper-slide slide-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47"> <g fill="#FFF"> <path d="M17.496 17.856c-1.44.432-2.448 1.728-2.448 3.24v9.144c0 1.872 1.512 3.384 3.384 3.384h9.072c1.872 0 3.384-1.512 3.384-3.384v-9.144c0-1.512-1.08-2.88-2.52-3.24V15.12c0-3.024-2.448-5.472-5.472-5.472-3.024 0-5.472 2.448-5.472 5.472v2.736h.072zm7.416 10.872c.144.576-.288 1.152-.864 1.152h-2.16c-.576 0-1.008-.576-.864-1.152l.864-3.6c-.72-.504-1.152-1.44-.792-2.376.216-.576.72-1.008 1.296-1.224 1.368-.432 2.592.576 2.592 1.944 0 .72-.36 1.296-.936 1.656l.864 3.6zM18.936 15.12c0-2.232 1.8-4.032 4.032-4.032S27 12.888 27 15.12v2.52h-8.064v-2.52zM30.888 37.584c-1.008 0-1.944.504-2.52 1.224l-2.448-1.224v-2.52h-1.44v2.952c0 .288.144.504.432.648l2.808 1.368c-.072.216-.072.504-.072.72 0 1.8 1.44 3.24 3.24 3.24 1.8 0 3.24-1.44 3.24-3.24 0-1.728-1.44-3.168-3.24-3.168zm0 5.04c-1.008 0-1.8-.792-1.8-1.8s.792-1.8 1.8-1.8 1.8.792 1.8 1.8-.792 1.8-1.8 1.8zM38.16 15.624c0 .792.288 1.512.792 2.088l-2.664 2.664h-3.96c0 .216.072.504.072.72v.72h4.176c.216 0 .36-.072.504-.216l3.024-3.024c.432.216.864.288 1.368.288 1.8 0 3.24-1.44 3.24-3.24 0-1.8-1.44-3.24-3.24-3.24-1.872 0-3.312 1.44-3.312 3.24zm3.24-1.8c1.008 0 1.8.792 1.8 1.8s-.792 1.8-1.8 1.8-1.8-.792-1.8-1.8.792-1.8 1.8-1.8zM43.2 22.176c-1.584 0-2.952 1.152-3.168 2.736h-7.704v1.44h7.776c.432 1.296 1.656 2.304 3.096 2.304 1.8 0 3.24-1.44 3.24-3.24 0-1.8-1.44-3.24-3.24-3.24zm0 5.04c-1.008 0-1.8-.792-1.8-1.8s.792-1.8 1.8-1.8 1.8.792 1.8 1.8-.792 1.8-1.8 1.8zM41.472 31.608c-.72 0-1.368.216-1.944.648l-2.52-2.52c-.072-.144-.288-.216-.504-.216h-4.176v.72c0 .216 0 .504-.072.72h3.96l2.376 2.376c-.216.432-.36.936-.36 1.512 0 1.8 1.44 3.24 3.24 3.24 1.8 0 3.24-1.44 3.24-3.24 0-1.8-1.44-3.24-3.24-3.24zm0 5.04c-1.008 0-1.8-.792-1.8-1.8s.792-1.8 1.8-1.8 1.8.792 1.8 1.8-.792 1.8-1.8 1.8zM5.4 18.864c.504 0 .936-.144 1.296-.288L9.72 21.6c.144.144.36.216.504.216h3.312v-.72c0-.216 0-.504.072-.72h-3.096L7.92 17.712c.504-.576.792-1.296.792-2.088 0-1.8-1.44-3.24-3.24-3.24-1.8 0-3.24 1.44-3.24 3.24-.072 1.8 1.368 3.24 3.168 3.24zm0-5.04c1.008 0 1.8.792 1.8 1.8s-.792 1.8-1.8 1.8-1.8-.792-1.8-1.8.792-1.8 1.8-1.8zM6.696 26.352h6.912v-1.44h-6.84c-.216-1.584-1.584-2.736-3.168-2.736-1.8 0-3.24 1.44-3.24 3.24 0 1.8 1.44 3.24 3.24 3.24 1.44 0 2.664-.936 3.096-2.304zM1.8 25.416c0-1.008.792-1.8 1.8-1.8s1.8.792 1.8 1.8-.792 1.8-1.8 1.8-1.8-.792-1.8-1.8zM14.184 6.984v6.696c0 .144.072.288.144.432l1.728 2.52v-1.44c0-.36 0-.648.072-1.008l-.504-.72v-6.48c1.44-.36 2.52-1.584 2.52-3.168 0-1.8-1.44-3.24-3.24-3.24-1.8 0-3.24 1.44-3.24 3.24 0 1.512 1.08 2.808 2.52 3.168zm.72-4.968c1.008 0 1.8.792 1.8 1.8s-.792 1.8-1.8 1.8-1.8-.792-1.8-1.8.792-1.8 1.8-1.8zM13.608 30.96c0-.216-.072-.504-.072-.72v-.72h-3.312c-.216 0-.36.072-.504.216l-2.52 2.52c-.576-.432-1.224-.648-1.944-.648-1.8 0-3.24 1.44-3.24 3.24 0 1.8 1.44 3.24 3.24 3.24 1.8 0 3.24-1.44 3.24-3.24 0-.576-.144-1.008-.36-1.512l2.376-2.376h3.096zm-8.28 5.688c-1.008 0-1.8-.792-1.8-1.8s.792-1.8 1.8-1.8 1.8.792 1.8 1.8-.792 1.8-1.8 1.8zM34.056 13.752l.216-.216 1.584-3.6c.216.072.432.072.648.072 1.8 0 3.24-1.44 3.24-3.24 0-1.8-1.44-3.24-3.24-3.24-1.8 0-3.24 1.44-3.24 3.24 0 1.08.504 2.016 1.296 2.592l-1.512 3.456-3.168 2.808v1.296c.144.072.288.144.36.216l3.816-3.384zm2.448-8.856c1.008 0 1.8.792 1.8 1.8s-.792 1.8-1.8 1.8-1.8-.792-1.8-1.8.792-1.8 1.8-1.8zM19.944 39.816l-1.224.792c-.576-.576-1.368-.936-2.232-.936-1.8 0-3.24 1.44-3.24 3.24 0 1.8 1.44 3.24 3.24 3.24 1.224 0 2.304-.648 2.88-1.728.432-.864.504-1.8.144-2.664l1.584-1.008c.216-.144.288-.36.288-.576v-5.184h-1.44v4.824zM18 43.848c-.288.576-.936.936-1.584.936-1.008 0-1.8-.792-1.8-1.8s.792-1.8 1.8-1.8c.576 0 1.152.288 1.512.792.432.576.432 1.224.072 1.872z"/> </g> </svg>
+                    <h3>End-to-end encryption</h3>
+                    <p>Data is secured within the VPN tunnel.</p>
+                  </div>
+                  <div class="swiper-slide slide-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40"> <g fill="#FFF"> <path d="M29.18 10.38c-.356-.356-.935-.356-1.292 0l-6.682 6.638c-1.649-.935-3.698-.356-4.633 1.292-.936 1.648-.357 3.698 1.292 4.633 1.648.936 3.697.357 4.633-1.292.356-.623.534-1.38.4-2.138-.044-.446-.178-.847-.4-1.203l6.682-6.638c.357-.356.357-.89 0-1.292zM39.605 20.85c-.134-.045-.267-.045-.401 0l-6.014 1.603c-.357.09-.58.49-.49.847l.133.267s0 .044.045.044l.668.713.713.713-6.95 6.95-5.123-5.123c-.446-.446-1.203-.446-1.648 0L9.712 37.689c-.223.223-.357.49-.357.802 0 .624.535 1.158 1.159 1.158.312 0 .579-.133.802-.311l10.068-10.024 5.123 5.123c.446.446 1.159.446 1.604 0l7.796-7.796.713.713.668.668.09.044c.311.223.757.179.98-.133.044-.09.089-.134.133-.223l1.604-6.014c.09-.357-.134-.758-.49-.847z"/> <path d="M10.291 29.448c-.134-.179-.356-.268-.58-.312-.222 0-.49.044-.667.178-.045 0-.045.044-.045.044l-2.45 2.406-.713-.89c-2.005-2.54-3.252-5.614-3.609-8.822l-.178-1.114h3.564c.49-.089.802-.534.758-1.069-.045-.356-.357-.668-.758-.757H2.05l.134-1.114c.356-3.207 1.604-6.281 3.608-8.865l.713-.891 2.45 2.45c.357.356.892.356 1.248 0l.044-.045c.268-.4.223-.935-.089-1.247l-2.36-2.406.89-.712c2.54-2.005 5.614-3.253 8.821-3.609l1.203-.178V5.97c0 .49.4.89.891.89.49 0 .891-.4.891-.89V2.45l1.827.223c3.653.58 7.038 2.361 9.622 4.99l.09.089c2.271 2.272 3.875 5.123 4.633 8.241l.044.134c.09.535.624.936 1.158.847.268-.045.535-.223.713-.446.178-.223.223-.535.178-.802l-.044-.089C36.62 6.727 28.734.445 19.647.401 8.82.4 0 9.177 0 20.047c0 1.47.178 2.985.49 4.41.846 3.565 2.628 6.817 5.257 9.446.356.356.89.356 1.247 0l3.208-3.164c.356-.356.4-.89.089-1.291z"/> </g> </svg>
+                    <h3>Free inbuilt speed test</h3>
+                    <p>Test the quality of your connection anytime.</p>
+                  </div>
+                  <div class="swiper-slide slide-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"> <path fill="#FFF" d="M20 0C8.972 0 0 8.972 0 20s8.972 20 20 20 20-8.972 20-20S31.028 0 20 0zm14.644 31.315c-1.698-.905-3.759-1.648-6.043-2.184.609-2.52.97-5.358 1.02-8.39H38.5c-.157 3.972-1.571 7.625-3.856 10.574zM1.5 20.74h3.07c.317 1.005 1.247 1.741 2.356 1.741 1.138 0 2.09-.775 2.381-1.821.099.047.206.08.323.08h.75c.05 2.988.4 5.79.994 8.282-2.307.503-4.404 1.213-6.167 2.102C3.009 28.21 1.654 24.627 1.5 20.741zM5.241 8.83c1.712.965 3.787 1.742 6.094 2.307-.57 2.452-.907 5.197-.956 8.121h-.75c-.116 0-.223.033-.322.081-.29-1.047-1.243-1.821-2.381-1.821-1.109 0-2.04.735-2.356 1.741H1.5c.155-3.907 1.524-7.506 3.741-10.43zM20 14.814c.408 0 .74.332.74.74 0 .409-.332.741-.74.741s-.74-.332-.74-.74c0-.409.332-.741.74-.741zm.74 2.826c.86-.307 1.482-1.121 1.482-2.085 0-.965-.621-1.779-1.481-2.086v-1.283c2.238-.012 4.426-.206 6.493-.555.533 2.32.856 4.908.906 7.627h-7.4v-1.618zm0-6.936v-9.14c2.547.55 4.794 3.895 6.127 8.63-1.946.32-4.012.498-6.126.51zm-1.48-9.14v9.114c-2.121-.065-4.167-.29-6.077-.66 1.34-4.642 3.563-7.91 6.076-8.454zm0 10.607v1.298c-.861.307-1.482 1.121-1.482 2.086 0 .964.62 1.778 1.481 2.085v1.618h-7.398c.05-2.785.387-5.433.944-7.797 2.03.401 4.208.644 6.454.71zM7.926 20c0 .552-.45 1-1.001 1-.552 0-1-.448-1-1s.449-1 1-1c.553 0 1 .448 1 1zm3.934.74h7.398v7.421c-2.21.026-4.37.226-6.407.579-.585-2.413-.939-5.136-.991-8zm7.398 8.902v8.793c-2.479-.536-4.676-3.72-6.021-8.26 1.912-.325 3.94-.508 6.021-.533zm1.482 8.793V29.65c.047.001.096.001.143.003.313.848 1.123 1.458 2.079 1.458.833 0 1.552-.466 1.932-1.147.626.083 1.241.179 1.844.29-1.347 4.499-3.534 7.648-5.998 8.18zm2.222-8.805c-.409 0-.74-.332-.74-.741s.331-.74.74-.74.74.331.74.74-.331.74-.74.74zm2.183-1.126c-.183-1.042-1.089-1.837-2.183-1.837-.973 0-1.793.632-2.093 1.503l-.13-.002v-7.427h7.4c-.053 2.896-.416 5.646-1.012 8.08-.648-.123-1.31-.227-1.982-.317zm4.475-9.245c-.048-2.836-.365-5.505-.905-7.9 2.37-.504 4.521-1.23 6.327-2.139 2.049 2.851 3.309 6.304 3.456 10.039h-8.878zm4.488-11.235c-1.656.801-3.603 1.447-5.753 1.899-.95-3.445-2.379-6.218-4.113-7.946 3.91.922 7.346 3.082 9.866 6.047zM15.757 1.978c-1.696 1.69-3.1 4.377-4.05 7.718-2.074-.506-3.943-1.19-5.5-2.037 2.489-2.778 5.801-4.799 9.55-5.681zm-9.58 30.326c1.609-.775 3.495-1.402 5.571-1.85.949 3.272 2.338 5.903 4.009 7.568-3.765-.886-7.089-2.921-9.58-5.718zm18.067 5.718c1.652-1.646 3.028-4.239 3.975-7.46 2.052.479 3.907 1.128 5.453 1.915-2.474 2.708-5.74 4.677-9.428 5.545z"/> </svg>
+                    <h3>Browse the web</h3>
+                    <p>Easily perform searches online.</p>
+                  </div>
+              </div>
+              <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="tasks">
+      <div class="main-grid">
+        <h2>Do More On The Internet!</h2>
+        <ul class="task-list">
+          <li>
+            <img src="images/img-1.jpg">
+            <div class="dFlex aCenter">
+              <p>Download files, stream videos, access social media platforms, & more.</p>
+            </div>
+          </li>
+          <li>
+            <img src="images/img-2.jpg">
+            <div class="dFlex aCenter">
+              <p>Get past geo-restrictions on all popular streaming platforms.</p>
+            </div>
+          </li>
+          <li>
+            <img src="images/img-3.jpg">
+            <div class="dFlex aCenter">
+              <p>Protect your activity from being logged or snooped on, even on public Wi-Fi.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="btfSS">
+      <div class="main-grid dFlex aCenter fDirCol">
+        <h2>Enjoy ultra fast VPN access for free!</h2>
+        <a href="" target="_blank" class="_cta">
+          <img src="images/google-play-badge.png" alt="get it on Google Play">
+        </a>
+        <img src="images/mobile.png" class="mobile">
+      </div>
+    </section>
+    <section class="plus-points">
+      <div class="points-list">
+        <h2>What makes us better?</h2>
+        <p>Browse the web without barriers via a stable, high-performing VPN tunnel that uses state-of-the-art cryptography.</p>
+        <ul>
+          <li><span>Tweaked compression and encryption steps to improve latency</span></li>
+          <li><span>Connects you to the best-performing servers nearby</span></li>
+          <li><span>No compromise on speed or security</span></li>
+          <li><span>Option to manually select a region for routing traffic</span></li>
+        </ul>
+      </div>
+    </section>
+    <section class="based-on">
+      <div class="main-grid">
+        <h2>Based on the world-leading Wireguard framework.</h2>
+        <a href="" target="_blank" class="_cta">
+          <img src="images/google-play-badge.png" alt="get it on Google Play">
+        </a>
+      </div>
+    </section>
+    <footer>
+      <p>All third-party names (including company and service names), graphics and logos used here are trademarks or registered trademarks of such third parties. Use of them here does not imply any affiliation with or endorsement by such third-parties.</p>
+      <div class="logoBox dFlex jCenter aCenter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15"> <path fill="#FA8400" fill-rule="evenodd" d="M8.594 5.594c-.05-.09-.142-.147-.242-.147H4.716l.61-4.846C5.338.467 5.262.34 5.14.297 5.019.252 4.884.3 4.814.412L.39 8.473c-.053.09-.055.201-.006.292.05.092.142.148.243.148H4.21l-.483 4.854c-.01.133.069.256.19.298.122.042.255-.007.324-.12l4.35-8.06c.05-.09.052-.2.003-.291z"/> </svg>
+        <span>FREE VPN</span>
+      </div>
+      <ul class="linkouts dFlex jCenter">
+        <li><a href="" target="_blank">Terms of Service</a></li>
+        <li><a href="" target="_blank">Privacy Policy</a></li>
+      </ul>
+    </footer>
   </div>
-  <script>
-    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script type="text/javascript">
+    var mySwiper = new Swiper('.swiper-container', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    setWrapperSize:false,
+    slidesPerView: 1.8,
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1.3,
+        spaceBetween: 20,
+      },
+      767: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1367: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    }
+  })
   </script>
 </body>
 </html>
