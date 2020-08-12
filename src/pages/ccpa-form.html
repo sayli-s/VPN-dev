@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Do Not Sell My Personal Information</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <style type="text/css">
+    /* CSS Reset Begins */
+    @import url(../css/reset.min.css);
+    /* CSS Reset Ends */
+    /*Custom CSS Begins*/
+    .dFlex{display: flex;}
+    .jCenter{justify-content: center;}
+    .jEnd{justify-content: flex-end;}
+    .jSpaceBtwn{justify-content: space-between;}
+    .aCenter{align-items: center;}
+    .fDirCol{flex-direction: column;}
+    .main-wrapper{line-height: 1.4;font-family: 'Heebo', sans-serif; color: #fff; overflow: hidden;background-color: #151726;font-weight: 400;padding: 20px 0 179px;}
+    .main-wrapper .main-grid{max-width: 1396px; padding: 0 15px;margin: 0 auto;width: 100%;}
+    .main-wrapper h1{font-size: 22px;font-weight: 700;}
+    .main-wrapper p{color: #b5ced2;font-size: 18px;max-width: 700px;margin: 20px auto 30px;}
+    .main-wrapper .form-wrapper{max-width: 411px;padding: 5px 30px 30px;border-radius: 9px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);background-color: #171e47;}
+    .main-wrapper input, select, textarea {width: 100%; padding: 13px 10px; margin: 8px 0 0; display: inline-block; border: 1px solid #89adb7; border-radius: 2px; box-sizing: border-box; outline: none;font-size: 22px;font-family: 'Roboto',sans-serif;color: #151b3a;}
+    .main-wrapper label{color: #b5ced2;font-size: 14px;margin-left: 8px;text-transform: uppercase;}
+    ::placeholder {color: #41434d; opacity: 0.4;}
+    :-ms-input-placeholder {color: #41434d; }
+    ::-ms-input-placeholder {color: #41434d; }
+    .main-wrapper .fieldWrap {margin-top: 15px; }
+    .main-wrapper .fnameWrap{width: 54%;display: inline-block;}
+    .main-wrapper .lnameWrap{width: 43%;margin-left: 5px;display: inline-block;}
+    .main-wrapper textarea{resize: none;}
+
+    .select2-container .select2-selection--single{height: 56px;}
+    .select2-search--dropdown{display: none;}
+    .select2-results__option{font-size: 15px; font-family: 'Roboto',sans-serif; padding: 6px;color: #151b3a !important;}
+    .select2-container--default .select2-selection--single{border-radius: 2px;}
+    .select2-container--default .select2-results>.select2-results__options{max-height: 216px;}
+    .select2-container--default .select2-selection--single .select2-selection__arrow{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAAAXNSR0IArs4c6QAAAgpJREFUOBGdU89rE1EQntnUrU2LaQ/dlSQbtBYUgqJ4EJq0BGmrl+IpKnqT4KUn/QcE/4Hei4JQ9CLFi7bYX2oluRUELxbbgN2NtBsQEowltrvTedu8ZRMV277LzPfNN9/Om90FaJxsNhuS+WFjsNczSSTSPesb1flwt+H+qpqfDmMYi2XiRatS6IwYa7WquY76mVGN6rV5IroAgA4i3bKtwvRBTE/2D/Y6284ya88hwm8A5bbSSW6dzZx9AxITv9CMgdH/Gfb1DUfY7K0w87Xo1pRicaES6ghdY/KLKBCBCi680hKDKV/YkkQvj4V/1rdfM31pv4RioDu2WZhTBLG59rGsgjqCAN8EJoAwuc6b3lMDFwUOnmQyq+5u/ZgmoHSDJ1AoJ9fkGYpCqfTeIlSHEXHTExJEcAfnoqdTZxuNIN5muVJ6ziu6LjkFlQdls/BMYh6q+ejxofMuOB/47j1eBcFqO3Y8/b24uKEZqSc8/j3ZwQ9/ZFv5xxKL+IehIPV4+gpPscDX6hKYVV9Z+I73e9/DglJwwjbzDyWW8a+GoqjHhq4SOjNs3C7FfkR8WrbyOR8HEn+HAc5Lt0rLS/xt3eRZdptr+HI8N+JP2lz7x5WDIi2eustTTjGHgDib0JM3VlYmd4KaYO79ekGiNeff6XNXt2Gz34l2iI6trk7VWzVHwplMpu0gjXtQaLOcUT2yeQAAAABJRU5ErkJggg==) no-repeat left #fff; margin-top: -13px;top: 50%;right:20px;}
+    .select2-container--default .select2-selection--single .select2-selection__arrow b{display: none;}
+    .select2-container--default .select2-selection--single .select2-selection__placeholder{line-height: 56px;color: #151b3a;font-size: 22px;font-family: 'Roboto',sans-serif;}
+    .select2-container .select2-selection--single .select2-selection__rendered{padding-left:10px;padding-right: 50px;line-height: 56px;font-size: 22px;color: #151b3a;}
+    .select2-container--default .select2-results__option[aria-selected=true]{background-color: #fff;}
+    .select2-container--default .select2-results__option--highlighted[aria-selected]{background-color: #00759e;color: #fff !important;border-radius: 2px;}
+    /*Custom CSS Ends*/
+  </style>
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="main-grid dFlex jCenter aCenter fDirCol">
+      <h1>For California Residents Only</h1>
+      <p>If you are a California resident and wish to exercise the rights granted to you by the California Consumer Privacy Act (CCPA) regarding your personal information, please fill out the form below.</p>
+      <div class="form-wrapper">
+        <form method="POST" action="" autocomplete="off" >
+          <div class="fnameWrap fieldWrap">
+            <label for="fname">FIRST NAME</label>
+            <input type="text" id="fname" name="firstname" placeholder="First Name" required>
+          </div>
+
+          <div class="lnameWrap fieldWrap">
+            <label for="lname">LAST NAME</label>
+            <input type="text" id="lname" name="lastname" placeholder="Last Name" required>
+          </div>
+
+          <div class="fieldWrap">
+          <label for="email">EMAIL ID</label>
+          <input type="email" id="email" name="email" placeholder="example@email.com" required>
+          </div>
+
+          <div class="fieldWrap">
+            <label>Request type</label>
+            <select id="single" class="js-states form-control">
+              <option value=""></option>
+              <option value="access"><span class="bold">Access:</span> I want a report of my personal information</option>
+              <option value="deletion"><span class="bold">Deletion:</span> I want my personal information to be erased</option>
+              <option value="prohibition"><span class="bold">Prohibition:</span> I do not want my personal information sold</option>
+              <option value="right"><span class="bold">Right To Know:</span> I want a report on the categories of personal information being collected</option>
+            </select>
+          </div>
+
+          <div class="fieldWrap">
+            <label for="details">Please enter the details of your request</label>
+            <textarea id="details" name="details" placeholder="Enter details..." cols="30" rows="3"></textarea>
+          </div>
+        
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script>
+      $("#single").select2({
+          placeholder: "Select a Request Type",
+          allowClear: false
+       
+      });
+    </script>
+</body>
+</html>
