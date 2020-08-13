@@ -37,7 +37,7 @@
     .select2-container .select2-selection--single{height: 56px;}
     .select2-search--dropdown{display: none;}
     .select2-results__option{font-size: 15px; font-family: 'Roboto',sans-serif; padding: 6px;color: #151b3a !important;}
-    .select2-container--default .select2-selection--single{border-radius: 2px;}
+    .select2-container--default .select2-selection--single{border-radius: 2px;border: 1px solid #89adb7;}
     .select2-container--default .select2-results>.select2-results__options{max-height: 216px;}
     .select2-container--default .select2-selection--single .select2-selection__arrow{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAAAXNSR0IArs4c6QAAAgpJREFUOBGdU89rE1EQntnUrU2LaQ/dlSQbtBYUgqJ4EJq0BGmrl+IpKnqT4KUn/QcE/4Hei4JQ9CLFi7bYX2oluRUELxbbgN2NtBsQEowltrvTedu8ZRMV277LzPfNN9/Om90FaJxsNhuS+WFjsNczSSTSPesb1flwt+H+qpqfDmMYi2XiRatS6IwYa7WquY76mVGN6rV5IroAgA4i3bKtwvRBTE/2D/Y6284ya88hwm8A5bbSSW6dzZx9AxITv9CMgdH/Gfb1DUfY7K0w87Xo1pRicaES6ghdY/KLKBCBCi680hKDKV/YkkQvj4V/1rdfM31pv4RioDu2WZhTBLG59rGsgjqCAN8EJoAwuc6b3lMDFwUOnmQyq+5u/ZgmoHSDJ1AoJ9fkGYpCqfTeIlSHEXHTExJEcAfnoqdTZxuNIN5muVJ6ziu6LjkFlQdls/BMYh6q+ejxofMuOB/47j1eBcFqO3Y8/b24uKEZqSc8/j3ZwQ9/ZFv5xxKL+IehIPV4+gpPscDX6hKYVV9Z+I73e9/DglJwwjbzDyWW8a+GoqjHhq4SOjNs3C7FfkR8WrbyOR8HEn+HAc5Lt0rLS/xt3eRZdptr+HI8N+JP2lz7x5WDIi2eustTTjGHgDib0JM3VlYmd4KaYO79ekGiNeff6XNXt2Gz34l2iI6trk7VWzVHwplMpu0gjXtQaLOcUT2yeQAAAABJRU5ErkJggg==) no-repeat left #fff; margin-top: -13px;top: 50%;right:20px;}
     .select2-container--default .select2-selection--single .select2-selection__arrow b{display: none;}
@@ -45,6 +45,7 @@
     .select2-container .select2-selection--single .select2-selection__rendered{padding-left:10px;padding-right: 50px;line-height: 56px;font-size: 22px;color: #151b3a;}
     .select2-container--default .select2-results__option[aria-selected=true]{background-color: #fff;}
     .select2-container--default .select2-results__option--highlighted[aria-selected]{background-color: #00759e;color: #fff !important;border-radius: 2px;}
+    .boldwrap {font-weight: bold; }
     /*Custom CSS Ends*/
   </style>
 </head>
@@ -96,9 +97,42 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
+      function markMatch(text, term) {
+
+        var match = text.toUpperCase().indexOf(term.toUpperCase());
+        var $result = $('<span></span>');
+
+        if (match < 0) {
+          return $result.text(text);
+        }
+
+        $result.text(text.substring(0, match));
+
+        var $match = $('<span class="select2-rendered__match"></span>');
+        $match.text(text.substring(match, match + term.length));
+
+        $result.append($match);
+        $result.append(text.substring(match + term.length));
+
+        return $result;
+      }
       $("#single").select2({
           placeholder: "Select a Request Type",
-          allowClear: false
+          allowClear: false,
+          templateResult: function(item) {
+            if (item.loading) {
+              return item.text;
+            }
+            var term = query.term || '';
+            var $result = markMatch('<span class="boldwrap">' + item.text.substring(0, item.text.indexOf(":")) + '</span>' + item.text.substring(item.text.indexOf(":")), term);
+            return $result;
+
+          },
+          language: {
+            searching: function(params) {
+              query = params;
+            }
+          }
        
       });
     </script>
