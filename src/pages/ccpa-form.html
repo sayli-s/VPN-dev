@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"/>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
   <style type="text/css">
     /* CSS Reset Begins */
@@ -19,28 +19,27 @@
     .jSpaceBtwn{justify-content: space-between;}
     .aCenter{align-items: center;}
     .fDirCol{flex-direction: column;}
-    .main-wrapper{line-height: 1.4;font-family: 'Heebo', sans-serif; color: #fff; overflow: hidden;background-color: #151726;font-weight: 400;padding: 20px 0 179px;}
+    .main-wrapper{line-height: 1.4;font-family: 'Heebo', sans-serif; color: #fff; overflow: hidden;background-color: #151726;font-weight: 400;padding: 20px 0;}
     .main-wrapper .main-grid{max-width: 1396px; padding: 0 15px;margin: 0 auto;width: 100%;}
-    .main-wrapper h1{font-size: 22px;font-weight: 700;}
+    .main-wrapper h1{font-size: 22px;font-weight: 700;width: 100%;text-align: center;}
     .main-wrapper p{color: #b5ced2;font-size: 18px;max-width: 774px;margin: 20px auto 30px;text-align: center;}
-    .main-wrapper .form-wrapper{padding: 5px 30px 30px;border-radius: 9px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);background-color: #171e47;max-width: 774px; width: 100%}
+    .main-wrapper .form-wrapper{padding: 5px 30px 30px;border-radius: 9px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);background-color: #171e47;max-width: 838px; width: 100%}
     .main-wrapper input[type="text"], .main-wrapper input[type="email"], .main-wrapper textarea {width: 100%; padding: 13px 10px; margin: 8px 0 0; display: inline-block; border: 1px solid #89adb7; border-radius: 2px; box-sizing: border-box; outline: none;font-size: 22px;font-family: 'Roboto',sans-serif;color: #151b3a;}
     .main-wrapper label{color: #b5ced2;font-size: 14px;margin-left: 8px;text-transform: uppercase;}
     ::placeholder {color: #41434d; opacity: 0.4;}
     :-ms-input-placeholder {color: #41434d; }
     ::-ms-input-placeholder {color: #41434d; }
     .main-wrapper .fieldWrap {margin-top: 15px; }
-    .main-wrapper .fnameWrap{width: 54%;display: inline-block;}
-    .main-wrapper .lnameWrap{width: 43%;margin-left: 5px;display: inline-block;}
+    .main-wrapper .fnameWrap{width: 53.9%;display: inline-block;}
+    .main-wrapper .lnameWrap{width: 44.4%;margin-left: 1%;display: inline-block;}
     .main-wrapper textarea{resize: none;}
 
     .select2{margin-top: 8px;width: 100% !important;}
     .select2-container .select2-selection--single{height: 56px;}
     .select2-search--dropdown{display: none;}
     .select2-results__option{font-size: 15px; font-family: 'Roboto',sans-serif; padding: 6px;color: #151b3a !important;}
-    .select2-container--default .select2-selection--single{border-radius: 2px;border: 1px solid #89adb7;border-bottom: none; position: relative;}
-    .select2-container--default .select2-selection--single::after {content: ''; width: 98%; height: 1px; background-color: #89adb7; position: absolute; bottom: 0; left: 50%; margin-left: -49%; }
-    .select2-container--default .select2-results>.select2-results__options{max-height: 237px;box-shadow: 0 4px 6px 0 rgba(32,33,36,0.28); margin-top: 5px;}
+    .select2-container--default .select2-selection--single{border-radius: 2px;border: 1px solid #89adb7; position: relative;}
+    .select2-container--default .select2-results>.select2-results__options{max-height: 237px;box-shadow: 0 2px 12px 0px rgba(32,33,36,0.28); }
     .select2-container--default .select2-selection--single .select2-selection__arrow{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAAAXNSR0IArs4c6QAAAgpJREFUOBGdU89rE1EQntnUrU2LaQ/dlSQbtBYUgqJ4EJq0BGmrl+IpKnqT4KUn/QcE/4Hei4JQ9CLFi7bYX2oluRUELxbbgN2NtBsQEowltrvTedu8ZRMV277LzPfNN9/Om90FaJxsNhuS+WFjsNczSSTSPesb1flwt+H+qpqfDmMYi2XiRatS6IwYa7WquY76mVGN6rV5IroAgA4i3bKtwvRBTE/2D/Y6284ya88hwm8A5bbSSW6dzZx9AxITv9CMgdH/Gfb1DUfY7K0w87Xo1pRicaES6ghdY/KLKBCBCi680hKDKV/YkkQvj4V/1rdfM31pv4RioDu2WZhTBLG59rGsgjqCAN8EJoAwuc6b3lMDFwUOnmQyq+5u/ZgmoHSDJ1AoJ9fkGYpCqfTeIlSHEXHTExJEcAfnoqdTZxuNIN5muVJ6ziu6LjkFlQdls/BMYh6q+ejxofMuOB/47j1eBcFqO3Y8/b24uKEZqSc8/j3ZwQ9/ZFv5xxKL+IehIPV4+gpPscDX6hKYVV9Z+I73e9/DglJwwjbzDyWW8a+GoqjHhq4SOjNs3C7FfkR8WrbyOR8HEn+HAc5Lt0rLS/xt3eRZdptr+HI8N+JP2lz7x5WDIi2eustTTjGHgDib0JM3VlYmd4KaYO79ekGiNeff6XNXt2Gz34l2iI6trk7VWzVHwplMpu0gjXtQaLOcUT2yeQAAAABJRU5ErkJggg==) no-repeat left #fff; margin-top: -13px;top: 50%;right:20px;}
     .select2-container--default .select2-selection--single .select2-selection__arrow b{display: none;}
     .select2-container--default .select2-selection--single .select2-selection__placeholder{line-height: 56px;color: #151b3a;font-size: 22px;font-family: 'Roboto',sans-serif;}
@@ -48,75 +47,34 @@
     .select2-container--default .select2-results__option[aria-selected=true]{background-color: #fff;}
     .select2-container--default .select2-results__option--highlighted[aria-selected]{background-color: #00759e;color: #fff !important;}
     .boldwrap {font-weight: bold; }
+    .main-wrapper .checkWrap {display: block; position: relative; padding-left: 40px; margin-bottom: 20px; cursor: default; pointer-events: none; font-size: 18px !important; text-transform: none !important; line-height: 24px; margin-left: 2px;}
+    .main-wrapper .checkWrap input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; opacity: 1; height: inherit; width: inherit; overflow: visible; }
+    .main-wrapper input[type=checkbox]{left: 0; height: 28px !important; width: 28px !important; top: -4px; margin-top: 0; }
+    .main-wrapper .checkmark {position: absolute; top: -4px; left: 0; height: 28px; width: 28px; background-color: #171e47; cursor: pointer; pointer-events: auto; border: 3px solid #00759e; border-radius: 2px; }
+    .main-wrapper .checkmark:after {content: ""; position: absolute; display: none; }
+    .main-wrapper .checkWrap input:checked ~ .checkmark:after {display: block; }
+    .main-wrapper .checkWrap .checkmark:after {left: 6px; top: 2px; width: 7px; height: 12px; border: solid #00759e; border-width: 0 3px 3px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+    .main-wrapper button[type="submit"]{margin: 0 auto; height: 66px; display: flex; justify-content: center; align-items: center; cursor: pointer; width: 100%; max-width: 348px; background-color: #006afa; border-radius: 4px; border: none; font-size: 24px; color: #fff; font-weight: 700;transition: all 450ms;}
+    .main-wrapper button .arrow{margin-left: 80px; line-height: 0; transition: all 450ms;}
+    .main-wrapper button[type="submit"]:hover{background-color: #006afaa8;}
+    .main-wrapper button[type="submit"]:hover .arrow{margin-left: 50px;}
+    .main-wrapper .bottomNote{margin-top: 25px; margin-bottom: 30px;font-weight: 700;}
+    .main-wrapper .bottomNote p{margin: 0;max-width: 805px}
+    .main-wrapper .bottomNote p:nth-child(2){margin: 15px auto 35px;}
 
-
-    /* The container */
-.checkWrap {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Hide the browser's default checkbox */
-.checkWrap input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-}
-
-/* On mouse-over, add a grey background color */
-.checkWrap:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.checkWrap input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.checkWrap input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.checkWrap .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
+    @media screen and (max-width:669px){
+      .main-wrapper .fnameWrap{width: 53.5%;}
+      .main-wrapper .lnameWrap{width: 44.3%;}
+    }
+    @media screen and (max-width:460px){
+      .main-wrapper .main-grid{padding: 0 10px;}
+      .main-wrapper h1{text-align: left; padding: 0 14px; }
+      .main-wrapper p{text-align: left; padding: 0 14px; }
+      .main-wrapper .form-wrapper{padding: 5px 15px 30px;}
+    }
+    @media screen and (max-width:395px){
+      .main-wrapper .fnameWrap,.main-wrapper .lnameWrap{width: 100%;margin-left: 0;}
+    }
     /*Custom CSS Ends*/
   </style>
 </head>
@@ -158,13 +116,24 @@
             <textarea id="details" name="details" placeholder="Enter details..." cols="30" rows="3"></textarea>
           </div>
 
-          <label class="fieldWrap checkWrap"> I agree that I am a California resident and that the information provided in this form is accurate and complete.
+          <label class="fieldWrap checkWrap" for="Iagree">&nbsp;I agree that I am a California resident and that the information provided in this form is accurate and complete.
             <input type="checkbox" id="Iagree" name="Iagree" required>
             <span class="checkmark"></span>
           </label>
           
-          <button type="submit">SUBMIT</button>
+          <button type="submit">
+            <strong>SUBMIT</strong>
+            <span class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="21" viewBox="0 0 13 21">
+                  <path fill="none" fill-rule="evenodd" stroke="#FFF" stroke-width="3" d="M254.435 27.679L266.823 27.292 266.435 39.679" transform="rotate(45 158.892 -290.655)"/>
+              </svg>
+            </span>
+          </button>
         </form>
+      </div>
+      <div class="bottomNote">
+        <p>I affirm that the information stated in this form is complete and accurate, upon submission.</p>       <p>Note: Any information given in this form may be used expressly for identity verification purposes. We may request additional information, should we find that the information provided is insufficient.</p>
+        <p>If you have questions on the progress of your response, please get in touch.</p>
       </div>
     </div>
 
