@@ -73,11 +73,6 @@
         transform: rotate(-360deg);
       }
     }
-    @keyframes spin-text {
-        100%{
-            transform: translate(360deg);
-        }
-    }
     .main-wrapper .features{height:100%;max-height: 337px;background-color: #00759e;padding-top: 30px;}
     .main-wrapper .features a{padding: 0 15px;}
     .main-wrapper .features .main-grid{padding:0;}
@@ -160,10 +155,26 @@
       .main-wrapper .task-list p{font-size: 15px;}
       .main-wrapper .btfSS h2{padding-top: 95px;}
     }
+
+    .loader-bg{display: flex;justify-content: center;align-items: center;width: 100%; height: 100%; position: relative;background-color: rgb(21 23 37 / 80%);}
+    .gradient-bg{width: 132px; height: 132px;background-image: linear-gradient(109deg, #22283b 23%, #0055d8 56%, #008fbd 78%, #4549da 92%);border-radius: 50%;position: absolute;animation: animate 1.5s linear infinite;}
+    .gradient-bg:before{content: '';position: absolute;left: 5px;top:5px;right: 5px;bottom: 5px;background:#151725 url('images/img.png') center no-repeat;z-index: 1;border-radius: 50%;animation: animatereverse 1.5s linear infinite;}
+    @keyframes animate{
+      0%{transform: rotate(0deg);}
+      100%{transform: rotate(360deg);}
+    }
+    @keyframes animatereverse{
+      0%{transform: rotate(360deg);}
+      100%{transform: rotate(0deg);}
+    }
+
     /*Custom CSS Ends*/
   </style>
 </head>
-<body>
+<body onload="myFunction()">
+  <div class="loader-bg">
+      <div class="gradient-bg"></div>
+  </div>
   <div class="main-wrapper">
     <section class="firstFold">
       <div class="main-grid dFlex fDirCol">
@@ -325,6 +336,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/swiper-bundle.min.js"></script>
   <script type="text/javascript">
+    var preloader = document.getElementsByClassName("loader-bg")[0];
+
+    function myFunction(){
+      preloader.style.display = 'none';
+    };
+
     var touchSwiper = new Swiper('.swiper-container', {
     direction: 'horizontal',
     loop: true,
