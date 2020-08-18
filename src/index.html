@@ -19,9 +19,25 @@
     .jSpaceBtwn{justify-content: space-between;}
     .aCenter{align-items: center;}
     .fDirCol{flex-direction: column;}
+
+    /*Preloader CSS Begins*/
+    .loader-bg{display: flex;justify-content: center;align-items: center;width: 100%; height: 100%; position: fixed;background-color: rgb(21 23 37 / 80%);z-index: 999;}
+    .gradient-bg{width: 132px; height: 132px;background-image: linear-gradient(109deg, #22283b 23%, #0055d8 56%, #008fbd 78%, #4549da 92%);border-radius: 50%;position: absolute;animation: animate 1.5s linear infinite;}
+    .gradient-bg:before{content: '';position: absolute;left: 5px;top:5px;right: 5px;bottom: 5px;background:#151725 url('images/img.png') center no-repeat;z-index: 1;border-radius: 50%;animation: animatereverse 1.5s linear infinite;}
+    .hidden {visibility: hidden; opacity: 0; transition: visibility 0s 0.2s, opacity 0.2s linear; }
+    @keyframes animate{
+      0%{transform: rotate(0deg);}
+      100%{transform: rotate(360deg);}
+    }
+    @keyframes animatereverse{
+      0%{transform: rotate(360deg);}
+      100%{transform: rotate(0deg);}
+    }
+    /*Preloader CSS Ends*/
+
     .main-wrapper{line-height: 1.4;font-family: 'Heebo', sans-serif; color: #fff; overflow: hidden;}
     .main-wrapper .main-grid{max-width: 1396px; padding: 0 15px;margin: 0 auto;width: 100%;}
-    .main-wrapper .firstFold{width: 100%;min-height: 456px;background:#0c172c url('images/atf-bg.png') center right no-repeat;}
+    .main-wrapper .firstFold{width: 100%;min-height: 475px;background:#0c172c url('images/atf-bg.png') center right no-repeat;}
     .main-wrapper header{padding:15px 5px;height: 60px;}
     .main-wrapper .branding{transform: rotate(0deg); transition: transform 16s linear;}
     .main-wrapper .freeBadge{width: 106px;height: 30px;background-color: #b8e986;color: #417505;font-size: 14px;border-radius: 5.5px;font-weight: 500;}
@@ -30,12 +46,12 @@
     .main-wrapper .title{font-size: 28px;line-height: 34px;text-align: center;}
     .main-wrapper .title span{color: #01c0dc;}
     .main-wrapper ._cta:hover{cursor: pointer;}
-    .main-wrapper ._cta img{margin: 30px auto;}
+    .main-wrapper ._cta{margin: 30px auto;}
     .main-wrapper .policy{font-size: 10px;color: #a9abb1;line-height: 11px;text-align: center;max-width: 420px;}
     .main-wrapper .policy a{text-decoration:underline;}
     .main-wrapper .policy a:hover{text-decoration: none;}
     .main-wrapper .screenshot{background-color: #f2f3f7;min-height: 703px;}
-    .main-wrapper .mobile{margin-top: -121px;}
+    .main-wrapper .mobile{margin-top: -145px;}
     .main-wrapper .ripples{width: 350px;height: 350px; position: relative;margin:25px auto 42px; }
     .main-wrapper .core,.main-wrapper .orbit,.main-wrapper .orbit + div,.main-wrapper .orbit + div > div {position: absolute; }
     .main-wrapper .core,.main-wrapper .orbit,.main-wrapper .orbit + div {top: 50%; left: 50%; }
@@ -95,9 +111,9 @@
     .main-wrapper .task-list li{display: inline-flex;background-color: #f2f3f7;border-radius: 7px;margin-top: 20px;}
     .main-wrapper .task-list li img{border-radius: 7px;}
     .main-wrapper .task-list p{font-size: 18px;padding:0 10px 0 18px;color: #252837;font-weight: 500;}
-    .main-wrapper .btfSS{height: 475px;background-color: #00759e;}
+    .main-wrapper .btfSS{height: 445px;background-color: #00759e;}
     .main-wrapper .btfSS h2{font-size: 28px;line-height: 34px;padding-top: 100px;text-align: center;}
-    .main-wrapper .btfSS ._cta{margin-bottom: 10px;}
+    .main-wrapper .btfSS ._cta{margin: 30px auto 10px;}
     .main-wrapper .btfSS .mobile{margin-top: 0;}
     .main-wrapper .plus-points{height: 100%;background-color: #f2f3f7;padding:232px 0 20px;}
     .main-wrapper .points-list{margin: 0 auto;max-width: 555px;padding: 0 15px;}
@@ -106,9 +122,9 @@
     .main-wrapper .plus-points ul{list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAbdJREFUOBGdVD1LA0EQfbuJJsTGKFgYD5EgIb2QSiOoWPkBFpY25k8ogmih/gNB7GwEBUUEJQqeCqJ/wASxi43gt4WGeOfMJhsuuXDG7HHs3Js37+ZuZlagxhrJTg4Jy5q2BAZgI6IoAg/Sxrkt5XY6tndaHSacwMj9VC/y+Q0bSDrxapuCTDQ3p9LR3TvtKwuNZif6LcvaJ5GwdnrtFPgipZw4ju1fME8JlTK5rldEv4DFKLMEZyYVWPycujLRIryrF1Ms24J/rG39nPBDo0tI37Dk6tQrEA/GkGjpc9FZQ6oSu1xuoDcYxYqxCCPQ5XKyhiz3icMdaepEUATKSE+gG6vGEnae99RddmiDes2vbec+2zGDsK8Vc7lFtPvbsGYs4/D1CFtP205ahS2GM+MZ2HbMiXI2y10LCPlCaPOFYX5cYv1x00mptIXISm77ShT4sr8xn1vCW+EdV5833iIUzBqe5ffDjwJdfy0uf7Gzb8fOqLmSfwXU8pOAmY4fDBY7mwZQtXstpgdWGpEUU5SQmhUawP+IMZeHVp8AxYxIUU0xDSARTI8klEtxiKsnn0HC3KuRg+0XjmKXjBO7JT4AAAAASUVORK5CYII=');margin-left: 25px}
     .main-wrapper .plus-points ul li{font-size: 18px;color: #4c4f5e;line-height: 22px;margin-bottom: 25px;}
     .main-wrapper .plus-points ul li span{position: relative;top: -2px;}
-    .main-wrapper .based-on{padding: 30px 0;background-color: #00759e;padding: 33px 0 10px;}
+    .main-wrapper .based-on{padding: 30px 0 40px;background-color: #00759e;}
     .main-wrapper .based-on .main-grid{text-align: center;}
-    .main-wrapper .based-on h2{font-size: 28px;line-height: 34px;text-align: center;max-width: 850px;margin: 0 auto;}
+    .main-wrapper .based-on h2{font-size: 28px;line-height: 34px;text-align: center;max-width: 850px;margin: 0 auto 30px;}
     .main-wrapper footer{background-color: #252837;padding: 30px 15px 21px;color: #5f6269;font-size: 10px;line-height: 12px;}
     .main-wrapper footer p{max-width: 700px; text-align: center; margin: 0 auto;}
     .main-wrapper footer .branding{margin:42px 0 39px;text-align: center;}
@@ -156,22 +172,12 @@
       .main-wrapper .btfSS h2{padding-top: 95px;}
     }
 
-    .loader-bg{display: flex;justify-content: center;align-items: center;width: 100%; height: 100%; position: relative;background-color: rgb(21 23 37 / 80%);}
-    .gradient-bg{width: 132px; height: 132px;background-image: linear-gradient(109deg, #22283b 23%, #0055d8 56%, #008fbd 78%, #4549da 92%);border-radius: 50%;position: absolute;animation: animate 1.5s linear infinite;}
-    .gradient-bg:before{content: '';position: absolute;left: 5px;top:5px;right: 5px;bottom: 5px;background:#151725 url('images/img.png') center no-repeat;z-index: 1;border-radius: 50%;animation: animatereverse 1.5s linear infinite;}
-    @keyframes animate{
-      0%{transform: rotate(0deg);}
-      100%{transform: rotate(360deg);}
-    }
-    @keyframes animatereverse{
-      0%{transform: rotate(360deg);}
-      100%{transform: rotate(0deg);}
-    }
+    
 
     /*Custom CSS Ends*/
   </style>
 </head>
-<body onload="myFunction()">
+<body onload="hideLoader()">
   <div class="loader-bg">
       <div class="gradient-bg"></div>
   </div>
@@ -336,10 +342,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/swiper-bundle.min.js"></script>
   <script type="text/javascript">
-    var preloader = document.getElementsByClassName("loader-bg")[0];
-
-    function myFunction(){
-      preloader.style.display = 'none';
+    function hideLoader(){
+      var preloader = document.getElementsByClassName("loader-bg")[0];
+      setTimeout(function(){ preloader.classList.add('hidden'); }, 1000);
     };
 
     var touchSwiper = new Swiper('.swiper-container', {
