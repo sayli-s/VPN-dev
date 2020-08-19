@@ -131,12 +131,12 @@
     .main-wrapper .btfSS h2{font-size: 28px;line-height: 34px;padding-top: 100px;text-align: center;}
     .main-wrapper .btfSS ._cta{margin: 30px auto;}
     .main-wrapper .btfSS .mobile{margin-top: 0;}
-    .main-wrapper .plus-points{height: 100%;background-color: #f2f3f7;padding:232px 0 20px;}
+    .main-wrapper .plus-points{height: 100%;background-color: #f2f3f7;padding:245px 0 20px;}
     .main-wrapper .points-list{margin: 0 auto;max-width: 555px;padding: 0 15px;}
     .main-wrapper .plus-points h2{font-size: 28px;padding: 50px 0 35px;color: #252837;font-weight: 500;}
     .main-wrapper .plus-points p{font-size: 18px;color: #4c4f5e;line-height: 22px;margin-bottom: 30px;}
     .main-wrapper .plus-points ul{list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAbdJREFUOBGdVD1LA0EQfbuJJsTGKFgYD5EgIb2QSiOoWPkBFpY25k8ogmih/gNB7GwEBUUEJQqeCqJ/wASxi43gt4WGeOfMJhsuuXDG7HHs3Js37+ZuZlagxhrJTg4Jy5q2BAZgI6IoAg/Sxrkt5XY6tndaHSacwMj9VC/y+Q0bSDrxapuCTDQ3p9LR3TvtKwuNZif6LcvaJ5GwdnrtFPgipZw4ju1fME8JlTK5rldEv4DFKLMEZyYVWPycujLRIryrF1Ms24J/rG39nPBDo0tI37Dk6tQrEA/GkGjpc9FZQ6oSu1xuoDcYxYqxCCPQ5XKyhiz3icMdaepEUATKSE+gG6vGEnae99RddmiDes2vbec+2zGDsK8Vc7lFtPvbsGYs4/D1CFtP205ahS2GM+MZ2HbMiXI2y10LCPlCaPOFYX5cYv1x00mptIXISm77ShT4sr8xn1vCW+EdV5833iIUzBqe5ffDjwJdfy0uf7Gzb8fOqLmSfwXU8pOAmY4fDBY7mwZQtXstpgdWGpEUU5SQmhUawP+IMZeHVp8AxYxIUU0xDSARTI8klEtxiKsnn0HC3KuRg+0XjmKXjBO7JT4AAAAASUVORK5CYII=');margin-left: 25px}
-    .main-wrapper .plus-points ul li{font-size: 18px;color: #4c4f5e;line-height: 22px;margin-bottom: 25px;}
+    .main-wrapper .plus-points ul li{font-size: 18px;color: #4c4f5e;line-height: 22px;margin-bottom: 25px;visibility: hidden;transition: all 1s;}
     .main-wrapper .plus-points ul li span{position: relative;top: -2px;}
     .main-wrapper .based-on{padding: 30px 0 40px;background-color: #00759e;}
     .main-wrapper .based-on .main-grid{text-align: center;}
@@ -377,6 +377,24 @@
         for (var i = 0; i < taskItems.length; i++) {
           taskItems[i].classList.add("slideIn");
         }
+      }
+      if(window.innerWidth >= 550 && scroll >= 2400){
+        slideUpOneByOne();
+      }
+      else if(scroll >= 2530){
+        slideUpOneByOne();
+      }
+    }
+
+    function slideUpOneByOne(){
+      var points = document.querySelectorAll(".main-wrapper .plus-points ul li");
+      points[0].classList.add("slide-up");
+      for(var i = 1; i < points.length; i++){
+        (function(i){
+            setTimeout(function(){
+                points[i].classList.add("slide-up");
+            }, 1000 * i);
+        })(i);
       }
     }
 
