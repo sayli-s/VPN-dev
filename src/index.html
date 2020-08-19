@@ -372,7 +372,7 @@
 
     function btfAnimations(){
       var scroll = $(window).scrollTop();
-      if (scroll >= 1300) {
+      if (scroll >= 1260) {
         var taskItems = document.querySelectorAll(".task-list li");
         for (var i = 0; i < taskItems.length; i++) {
           taskItems[i].classList.add("slideIn");
@@ -381,7 +381,7 @@
       if(window.innerWidth >= 550 && scroll >= 2400){
         slideUpOneByOne();
       }
-      else if(scroll >= 2530){
+      else if(scroll >= 2475){
         slideUpOneByOne();
       }
     }
