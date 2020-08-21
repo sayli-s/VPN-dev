@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"/>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Roboto&display=swap" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
   <style type="text/css">
     /* CSS Reset Begins */
@@ -67,6 +66,17 @@
     .main-wrapper .bottomNote p{margin: 0 auto;max-width: 805px}
     .main-wrapper .bottomNote p:nth-child(2){margin: 15px auto 35px;}
 
+    /*ThankYou popup Begins*/
+    .overlay{width: 100%; height: 100%; position: fixed; top: 0; left: 0; background-color: rgb(21 23 37 / 80%);} 
+    .hidden{visibility: hidden;}
+    .popupWrap{width: 100%; max-width: 700px; background-color: #f2f3f7; height: 200px; border-radius: 15px;margin: 0 10px;position: relative;}
+    .ico-close{font: normal 1em/1 Arial, sans-serif; position: absolute; top: 10px; right: 10px; color: #252837; font-size: 18px;cursor: pointer;}
+    .ico-close:before{ content: "\2716"; }
+    .popupWrap p{font-size: 28px; line-height: 34px; text-align: center; font-family: 'Heebo',sans-serif; font-weight: 500; color: #252837;}
+
+
+    /*ThankYou popup Ends*/
+
     @media screen and (max-width:768px){
       .main-wrapper .fnameWrap{width: 53.5%;}
       .main-wrapper .lnameWrap{width: 44.3%;}
@@ -91,14 +101,14 @@
     <div class="main-grid dFlex jCenter aCenter fDirCol">
       <h1>For California Residents Only</h1>
       <label class="fieldWrap checkWrap" for="isResident">I confirm that I am a resident of the state of California.
-        <input type="checkbox" id="isResident" name="isResident" onclick="checkResident()" required>
+        <input type="checkbox" id="isResident" name="isResident" onchange="checkResident()" required>
         <span class="checkmark"></span>
       </label>
 
       <div class="bottomForm">
         <p>If you are a California resident and wish to exercise the rights granted to you by the California Consumer Privacy Act (CCPA) regarding your personal information, please fill out the form below.</p>
         <div class="form-wrapper">
-          <form method="POST" action="" autocomplete="off" >
+          <form method="POST" action="" autocomplete="off" onsubmit="showPopup();return false;" id="reqForm">
             <div class="fnameWrap fieldWrap">
               <label for="fname">FIRST NAME</label>
               <input type="text" id="fname" name="firstname" placeholder="First Name" required>
@@ -116,7 +126,7 @@
 
             <div class="fieldWrap">
               <label>Request type</label>
-              <select id="single" class="js-states form-control">
+              <select id="reqType" class="js-states form-control">
                 <option value=""></option>
                 <option value="access"><span class="bold">Access:</span> I want a report of my personal information</option>
                 <option value="deletion"><span class="bold">Deletion:</span> I want my personal information to be erased</option>
@@ -154,45 +164,42 @@
 
 
   </div>
+  <div class="overlay dFlex jCenter aCenter hidden">
+    <div class="popupWrap dFlex jCenter aCenter">
+      <i class="ico-close"></i>
+      <p>Thank You for contacting us!</p>
+    </div>
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
+      $("#reqType").select2({
+          placeholder: "Select a Request Type",
+          allowClear: false,
+      });
+
       function checkResident(){
         var checkBox = document.getElementById("isResident");
         var form = document.getElementsByClassName("bottomForm")[0];
         form.classList.toggle('fadeIn');
       }
 
-      /*function markMatch(text, term) {
-        var match = text.toUpperCase().indexOf(term.toUpperCase());
-        var $result = $('<span></span>');
-        if (match < 0) {
-          return $result.text(text);
-        }
-        $result.text(text.substring(0, match));
-        var $match = $('<span class="select2-rendered__match"></span>');
-        $match.text(text.substring(match, match + term.length));
-        $result.append($match);
-        $result.append(text.substring(match + term.length));
-        return $result;
-      }*/
-      $("#single").select2({
-          placeholder: "Select a Request Type",
-          allowClear: false,
-          /*templateResult: function(item) {
-            if (item.loading) {
-              return item.text;
-            }
-            var term = query.term || '';
-            var $result = markMatch('<span class="boldwrap">' + item.text.substring(0, item.text.indexOf(":")) + '</span>' + item.text.substring(item.text.indexOf(":")), term);
-            return $result;
-          },
-          language: {
-            searching: function(params) {
-              query = params;
-            }
-          }*/
-      });
+      function showPopup(){
+        document.getElementsByClassName('overlay')[0].classList.remove('hidden');
+      }
+
+      var closeBtn = document.getElementsByClassName('ico-close')[0];
+      closeBtn.onclick = function(){
+        document.getElementsByClassName('overlay')[0].classList.add('hidden');
+        document.getElementById("reqForm").reset();
+        var dropdown = document.getElementById("reqType");
+        dropdown.value = "";
+        dropdown.dispatchEvent(new Event("change"));
+        var mainCheckbox = document.getElementById("isResident"); 
+        mainCheckbox.checked = "";
+        mainCheckbox.dispatchEvent(new Event("change"));
+      }
+      
     </script>
 </body>
 </html>
